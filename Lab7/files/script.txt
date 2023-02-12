@@ -1,0 +1,5 @@
+﻿<variable_created> = <dog>.<Age>
+<cat>.<makeSounds>()
+<str_colour> = <cat>.<Colour>
+<dog>.<Breed> = <str_breed>
+<dog>.<Age> = <var_int>
