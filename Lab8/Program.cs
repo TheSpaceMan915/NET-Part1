@@ -1,12 +1,13 @@
 ﻿using Lab8;
 
-Func<double, double> function = x => Math.Sin(x);
+Func<double, double> function = x => x;
 int n0 = 1, n1 = 0;
-double start = 0, end = 7, middle = (end-start)/2;
+double start = -10, end = 10, middle = (end-start)/2;
 double eps = 0.0005, error = Double.MaxValue;
+TableHelper.printTableHeader();
 
 int counter = 0;
-while (eps<error & counter!=15)
+while (eps<error & counter!=20)
 {
     // initialising n on the two intervals
     counter++;
@@ -29,13 +30,12 @@ while (eps<error & counter!=15)
     double sum1 = list1.Sum();
     double sum2 = list2.Sum();
     error = Math.Abs(sum2 - sum1);
-   
-    double res = sum1 + sum2;
-    Console.WriteLine("{0}. n0: {1}, n1: {2}, error: {3}, res: {4}", counter, n0, n1, error, res);
+    double res = Math.Abs(sum1 + sum2);
+    TableHelper.printTableRow(counter, n0, n1, error, res);
 
     // cleaning the lists containing sums
     list1.Clear();
     list2.Clear();
 }
 
-Console.WriteLine("The job's done");
+TableHelper.printTableFooter();
